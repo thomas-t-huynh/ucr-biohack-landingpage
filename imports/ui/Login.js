@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
+import { browserHistory } from 'react-router';
 
 
 export default class Login extends React.Component {
@@ -25,6 +26,8 @@ export default class Login extends React.Component {
         this.setState({error: ''})
       }
     })
+
+    browserHistory.replace('/');
   }
 
   render() {
@@ -40,8 +43,6 @@ export default class Login extends React.Component {
               <input type="password" ref="password" name="password" placeholder="Password" />
               <button className="button">Login</button>
             </form>
-
-            <Link to="/signup">Don't have an account?</Link>
           </div>
         </div>
     ) 

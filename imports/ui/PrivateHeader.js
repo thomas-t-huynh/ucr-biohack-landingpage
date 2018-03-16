@@ -3,28 +3,19 @@ import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router';
 
 const PrivateHeader = (props) => {
-    const onLogout = () => {
-        Accounts.logout();
-    }
+
+    const isAuthenticated = !!Meteor.userId();
 
     return (
         <div className="header__bg">
             <div className="header">
                 <Link className="header__link" to="/">Home</Link>
-                <Link className="header__link" to="/">Sponsorship</Link>
-                <Link className="header__link" to="/">Application</Link>
-                <Link className="header__link" to="/">Contact</Link>
-                <button className="button button--logout" onClick={() => {
-                    Accounts.logout()
-                }}>Logout</button>
+                <Link className="header__link" to="/sponsorship">Sponsorship</Link>
+                <Link className="header__link" to="/signup">Application</Link>
+                <Link className="header__link" to="/contact">Contact</Link>
             </div>
         </div>
     );
-}
- 
-
-PrivateHeader.propTypes = {
-    title: React.PropTypes.string.isRequired
 }
 
 export default PrivateHeader;

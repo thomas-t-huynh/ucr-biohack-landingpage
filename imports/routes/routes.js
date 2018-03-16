@@ -6,9 +6,13 @@ import Dashboard from '../ui/Dashboard';
 import Signup from '../ui/Signup';
 import NotFound from '../ui/NotFound';
 import Login from '../ui/Login';
+import Applicants from '../ui/Applicants';
+import Contact from '../ui/Contact';
+import Sponsorship from '../ui/Sponsorship';
 
-const unauthenticatedPages = ['/', '/signup' ];
-const authenticatedPages = ['/admin'];
+const unauthenticatedPages = ['/', '/signup', '/login' ];
+const authenticatedPages = ['/admin', '/applicants'];
+
 const onEnterPublicPage = () => {
   if (Meteor.userId()) {
     browserHistory.replace('/');
@@ -33,8 +37,12 @@ export const onAuthChange = (isAuthenticated) => {
 
 export const routes = (
   <Router history={browserHistory}>
-    <Route path="/" component={Dashboard} onEnter={onEnterPublicPage} /> 
-    <Route path="/signup" component={Signup} onEnter={onEnterPublicPage} />
+    <Route path="/" component={Dashboard} /> 
+    <Route path="/signup" component={Signup} />
+    <Route path="/login" component={Login} />
+    <Route path="/contact" component={Contact} />
+    <Route path="/sponsorship" component={Sponsorship} />
+    <Route path="/applicants" component={Applicants} onEnter={onEnterPrivatePage} />
     <Route path="*" component={NotFound} /> 
   </Router>
 );

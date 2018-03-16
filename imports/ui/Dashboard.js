@@ -1,6 +1,7 @@
 import React from 'react';
 import PrivateHeader from './PrivateHeader';
 import LandingPage from './LandingPage';
+import Footer from './Footer';
 
 
 export default Dashboard = () => (
@@ -9,5 +10,6 @@ export default Dashboard = () => (
         <div className="page-content">
             <LandingPage />
         </div>
+        <Footer />
     </div>
 );

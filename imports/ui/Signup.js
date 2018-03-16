@@ -1,12 +1,14 @@
 import React from 'react';
 import { Applications } from './../api/applications';
+import PrivateHeader from './PrivateHeader';
 
 export default class Signup extends React.Component {
 
   constructor(props) {
     super(props);
       this.state = {
-          error: ''
+          error: '',
+          complete: false
       };
   }
 
@@ -36,26 +38,33 @@ export default class Signup extends React.Component {
         email
       })     
     }
+
+    this.setState(() => ({ complete: true }))
   }
 
   render() {
     return (
-      <div className="boxed-view">
-        <div className="boxed-view__box">
-          <h1>Apply for the Biohack</h1>
+      
+      <div>
+        <PrivateHeader/>
+        <div className="boxed-view">
+          <div className="boxed-view__box">
+            <h1>Apply for the Biohack</h1>
 
-          {this.state.error ? <p>{this.state.error}</p> : undefined}
+            {this.state.error ? <p>{this.state.error}</p> : undefined}
 
-          <form className="boxed-view__form" onSubmit={this.onSubmit.bind(this)} noValidate>
-            <input type="firstName" ref="firstName" name="firstName" placeholder="Your first name" />
-            <input type="lastName" ref="lastName" name="lastName" placeholder="Your last name" />
-            <input type="year" ref="year" name="year" placeholder="ie. Sophomore" />
-            <input type="major" ref="major" name="major" placeholder="ie. Bioengineer" />
-            <input type="email" ref="email" name="email" placeholder="Email" />
-            <textarea type="description" ref="description" name="description" placeholder="Please describe what your project will be" />
-
-            <button className="button">Apply</button>
-          </form>
+            {!this.state.complete ?
+              <form className="boxed-view__form" onSubmit={this.onSubmit.bind(this)} noValidate>
+                <input type="firstName" ref="firstName" name="firstName" placeholder="Your first name" />
+                <input type="lastName" ref="lastName" name="lastName" placeholder="Your last name" />
+                <input type="year" ref="year" name="year" placeholder="ie. Sophomore" />
+                <input type="major" ref="major" name="major" placeholder="ie. Bioengineer" />
+                <input type="email" ref="email" name="email" placeholder="Email" />
+                <textarea type="description" ref="description" name="description" placeholder="Please describe what your project will be" />
+                <button className="button">Apply</button>
+              </form>
+            : <h3>Thank you for your interest in the biohack!</h3>}
+          </div>
         </div>
       </div>
     )

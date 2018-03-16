@@ -1,5 +1,4 @@
 .button {
-    background-color: $brand-primary;
     border: none;
     cursor: pointer;
     font-size: $base-font-size;
@@ -33,4 +32,6 @@
     text-decoration: underline;
     margin: 0;
     padding: 0;
+    color: white;
+    background-color: black;
 }
