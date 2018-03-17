@@ -7,9 +7,7 @@ import Footer from './Footer';
 export default Dashboard = () => (
     <div>
         <PrivateHeader title="Meteor plate" />
-        <div className="page-content">
-            <LandingPage />
-        </div>
+        <LandingPage />>
         <Footer />
     </div>
 );

@@ -2,15 +2,16 @@
     justify-content: space-between;
     background: black;
     height: 6rem;
+    width: 100%;
 }
 
 .header {
-    padding-top: $space;
+    padding: $space 0 $space 0;
     margin: 0 auto;
     max-width: 50%;
     display: flex;
-    justify-content: space-between;
     color: white;
+    float: right;
 }
 
 .header__h1 {
@@ -20,4 +21,9 @@
 .header__link {
     text-decoration: none;
     color: white;
+    margin: 0 1rem 0 1rem;
+}
+
+.header-top {
+    position: fixed;
 }
